@@ -1,0 +1,5 @@
+@import 'abstracts/mixins';
+
+.app-test {
+  @include set-color;
+}
