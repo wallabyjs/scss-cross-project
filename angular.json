@@ -3,5 +3,79 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "shared-theme-styles": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/shared-theme-styles",
+      "sourceRoot": "projects/shared-theme-styles/src",
+      "prefix": "app",
+      "architect": {
+      }
+    },
+    "shared-theme-components": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/shared-theme-components",
+      "sourceRoot": "projects/shared-theme-components/src",
+      "prefix": "app",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/shared-theme-components/src/test.ts",
+            "polyfills": "projects/shared-theme-components/src/polyfills.ts",
+            "tsConfig": "projects/shared-theme-components/tsconfig.spec.json",
+            "karmaConfig": "projects/shared-theme-components/karma.conf.js",
+            "styles": ["projects/shared-theme-components/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["projects/shared-theme-styles/src"]
+            },
+            "scripts": []
+          }
+        }
+      }
+    },
+    "ntracts-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ntracts-app",
+      "sourceRoot": "projects/ntracts-app/src",
+      "prefix": "app",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ntracts-app/src/test.ts",
+            "polyfills": "projects/ntracts-app/src/polyfills.ts",
+            "tsConfig": "projects/ntracts-app/tsconfig.spec.json",
+            "karmaConfig": "projects/ntracts-app/karma.conf.js",
+            "assets": [
+              "projects/ntracts-app/src/favicon.ico",
+              "projects/ntracts-app/src/assets"
+            ],
+            "styles": ["projects/shared-theme-styles/src/main.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["projects/shared-theme-styles/src"]
+            },
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }

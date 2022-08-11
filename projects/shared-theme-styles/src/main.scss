@@ -1,0 +1,5 @@
+@import 'abstracts/mixins';
+
+body {
+  @include set-color;
+}

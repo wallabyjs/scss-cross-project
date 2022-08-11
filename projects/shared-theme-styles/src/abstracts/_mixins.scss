@@ -1,0 +1,5 @@
+@import 'abstracts/colors';
+
+@mixin set-color {
+  background-color: $base-color;
+}
